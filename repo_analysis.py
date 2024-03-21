@@ -46,7 +46,11 @@ key_list = [
 # loop through list of dictionaries and pare down
 repo_info_pared = []
 for repo in repo_info:
-    repo_info_pared.append({k: repo[k] for k in key_list})
+    repo_info_pared.append(
+        {k: repo[k] for k in key_list}
+    )
+# remove repos where primaryLanguage is None
+repo_info_pared = [repo for repo in repo_info_pared if repo['primaryLanguage'] is not None]
 
 # write to JSON
 with open('repo_info.json', 'w') as f:
