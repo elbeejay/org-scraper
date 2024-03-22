@@ -34,6 +34,7 @@ jobs:
           python-version: "3.10"
       - name: Run Code and Make JSON
         run: |
+          pip install requests
           python repo_analysis.py
       - name: Setup Pages
         uses: actions/configure-pages@v4
